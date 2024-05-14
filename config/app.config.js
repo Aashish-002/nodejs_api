@@ -1,5 +1,5 @@
 const MONGO_DB_CONFIG = {
-  DB: "mongodb+srv://vikas:2DpaSdd2Jn5dbwQI@cluster0.4ml1awv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+  DB: "mongodb+srv://vikas:2DpaSdd2Jn5dbwQI@cluster0.4ml1awv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/ecomerce_db",
   PAGE_SIZE: 10,
 };
 
