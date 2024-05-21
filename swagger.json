@@ -47,7 +47,7 @@
         "summary": "Register API",
         "parameters": [
           {
-            "name": "RegisterModel",
+            "name": "RegisterModel", 
             "in": "body",
             "description": "User Registration",
             "required": true,

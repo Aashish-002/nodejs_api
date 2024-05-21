@@ -19,7 +19,9 @@ const category = mongoose.model(
         {
             toJSON: {
                 transform: function (doc, ret) {
-                    ret.categoryId = ret._id.toString();
+                      if (ret._id) {
+                        ret.categoryId = ret._id ? ret._id.toString() : null;
+                      }
                     delete ret._id;
                     delete ret._v;
                 },

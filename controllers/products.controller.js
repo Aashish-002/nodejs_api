@@ -40,11 +40,13 @@ exports.create = (req, res, next) => {
 }
 
 exports.findAll = (req, res, next) => {
-    var model = {
+  var model = {
+      productIds:req.query.productIds,
       productName: req.query.productName,
       categoryId: req.query.categoryId,
       pageSize: req.query.pageSize,
       page: req.query.page,
+      sort: req.query.sort,
     };
     
     productServices.getProducts(model, (error, results) => {
@@ -87,7 +89,7 @@ exports.update = (req, res, next) => {
         req.file != undefined ? req.file.path.replace(/\\/g, "/") : "";
 
       var model = {
-        productId:req.param.id,
+        productId: req.params.id,
         productName: req.body.productName,
         category: req.body.category,
         productShortDescription: req.body.productShortDescription,
@@ -106,7 +108,7 @@ exports.update = (req, res, next) => {
         } else {
           return res.status(200).send({
             message: "Success",
-            data: results,
+            data: model,
           });
         }
       });
