@@ -35,7 +35,7 @@ app.use("/api", require("./routes/app.routes"));
 app.use(errors.errorHandler);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const PORT = 4000;
+const PORT = 5000;
 app.listen(PORT, function () {
   console.log(`Server is running on port ${PORT}`);
 });
