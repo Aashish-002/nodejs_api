@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "https://nodejs-api-xx5b.onrender.com/",
+  "host": "https://nodejs-api-xx5b.onrender.com",
   "basePath": "/",
   "tags": [
     {
