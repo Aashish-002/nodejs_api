@@ -1,22 +1,18 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
 const { MONGO_DB_CONFIG } = require("./config/app.config");
 const errors = require("./middleware/errors.js");
 const swaggerUi = require("swagger-ui-express"),
     swaggerDocument = require("./swagger.json");
 
-// Load environment variables from .env file
-dotenv.config();
-
-// Enable CORS for all routes
-app.use(cors());
+// const connectDB = require("./db.js")
+  
+// connectDB()
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(process.env.MONGO_DB_URI, {
+  .connect(MONGO_DB_CONFIG.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -34,8 +30,6 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api", require("./routes/app.routes"));
 app.use(errors.errorHandler);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-const PORT = 5000;
-app.listen(PORT, function () {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(process.env.port || 4000, function () {
+  console.log("Ready to Go!!");
 });
